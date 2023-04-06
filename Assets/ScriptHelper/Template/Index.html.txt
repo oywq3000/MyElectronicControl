@@ -1,0 +1,54 @@
+﻿<!--/*******************************************************************************
+* 版权声明：科技有限公司，保留所有版权
+* 版本声明：v1.0.0
+* 类 名 称：#ScriptName#
+* 创建日期：#NowTime#
+* 作者名称：#Author#
+* CLR 版本：4.0.30319.42000
+* 修改记录：
+* 描述：每次发布webgl版本时，需要确定发布的路径名称，在配置窗口将发布包所在的文件夹的名字附上
+
+******************************************************************************/-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | #ProgramName#</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+	
+	
+	<script src="StreamingAssets/VoiceJs/tts_Js/tts_data.js"></script>
+	<script src="StreamingAssets/VoiceJs/tts_Js/hmac-sha256.js"></script>
+	<script src="StreamingAssets/VoiceJs/tts_Js/enc-base64-min.js"></script>
+	<script src="StreamingAssets/VoiceJs/tts_Js/base64js.js"></script>
+	<script src="StreamingAssets/VoiceJs/tts_Js/jquery.js"></script>
+	<script src="StreamingAssets/VoiceJs/tts_Js/index.js"></script>
+	<script src="StreamingAssets/VoiceJs/iat_Js/iat_data.js"></script>
+	<script src="StreamingAssets/VoiceJs/iat_Js/hmac-sha256.js"></script>
+	<script src="StreamingAssets/VoiceJs/iat_Js/enc-base64-min.js"></script>
+	<script src="StreamingAssets/VoiceJs/iat_Js/jquery.js"></script>
+	<script src="StreamingAssets/VoiceJs/iat_Js/index.js"></script>
+	<script src="StreamingAssets/VoiceJs/record_Js/recordmp3.js"></script>
+	<script src="StreamingAssets/VoiceJs/record_Js/VoiceRecoderDefine.js"></script>
+    
+	
+	<script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/#ReleasePathName#.json" , {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">#ProgramName#</div>
+      </div>
+    </div>
+  </body>
+</html>

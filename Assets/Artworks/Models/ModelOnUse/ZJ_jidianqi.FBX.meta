@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: 0f13406ae3cc2e34c8de8dd221271814
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Plane004
+    100002: //RootNode
+    100004: ZJ_jidianqi01
+    100006: ZJ_jidianqi02
+    100008: ZJ_jidianqi03
+    100010: ZJ_jidianqi04
+    100012: ZJ_jidianqi05
+    100014: ZJ_jidianqi06
+    100016: ZJ_jidianqi07
+    100018: ZJ_jidianqi08
+    100020: ZJ_jidianqi09
+    100022: ZJ_jidianqi10
+    100024: ZJ_jidianqi11
+    100026: ZJ_jidianqi12
+    100028: ZJ_jidianqi13
+    100030: ZJ_jidianqi14
+    100032: ZJ_jidianqi15
+    100034: ZJ_jidianqi19
+    100036: ZJ_jidianqi23
+    100038: ZJ_jidianqi24
+    100040: ZJ_jidianqi25
+    100042: ZJ_jidianqi27
+    100044: ZJ_jidianqi28
+    100046: ZJ_jidianqi29
+    100048: ZJ_jidianqi30
+    100050: ZJ_jidianqi32
+    100052: ZJ_jidianqi35
+    100054: ZJ_jidianqi36
+    100056: ZJ_jidianqi39
+    100058: ZJ_jidianqi40
+    100060: ZJ_jidianqi45
+    100062: ZJ_jidianqi46
+    100064: ZJ_jidianqi47
+    100066: ZJJDQ01
+    400000: Plane004
+    400002: //RootNode
+    400004: ZJ_jidianqi01
+    400006: ZJ_jidianqi02
+    400008: ZJ_jidianqi03
+    400010: ZJ_jidianqi04
+    400012: ZJ_jidianqi05
+    400014: ZJ_jidianqi06
+    400016: ZJ_jidianqi07
+    400018: ZJ_jidianqi08
+    400020: ZJ_jidianqi09
+    400022: ZJ_jidianqi10
+    400024: ZJ_jidianqi11
+    400026: ZJ_jidianqi12
+    400028: ZJ_jidianqi13
+    400030: ZJ_jidianqi14
+    400032: ZJ_jidianqi15
+    400034: ZJ_jidianqi19
+    400036: ZJ_jidianqi23
+    400038: ZJ_jidianqi24
+    400040: ZJ_jidianqi25
+    400042: ZJ_jidianqi27
+    400044: ZJ_jidianqi28
+    400046: ZJ_jidianqi29
+    400048: ZJ_jidianqi30
+    400050: ZJ_jidianqi32
+    400052: ZJ_jidianqi35
+    400054: ZJ_jidianqi36
+    400056: ZJ_jidianqi39
+    400058: ZJ_jidianqi40
+    400060: ZJ_jidianqi45
+    400062: ZJ_jidianqi46
+    400064: ZJ_jidianqi47
+    400066: ZJJDQ01
+    2100000: 'Material #11024'
+    2100002: jdq_jinshu
+    2100004: 'Material #57'
+    2100006: baicuxian
+    2100008: 'Material #11001'
+    2100010: ZJ_Jidianqi1
+    2100012: ZJ_jidianqi07
+    2100014: 'Material #27'
+    2100016: 'Material #28'
+    2300000: Plane004
+    2300002: ZJ_jidianqi01
+    2300004: ZJ_jidianqi02
+    2300006: ZJ_jidianqi03
+    2300008: ZJ_jidianqi04
+    2300010: ZJ_jidianqi05
+    2300012: ZJ_jidianqi06
+    2300014: ZJ_jidianqi07
+    2300016: ZJ_jidianqi08
+    2300018: ZJ_jidianqi09
+    2300020: ZJ_jidianqi10
+    2300022: ZJ_jidianqi11
+    2300024: ZJ_jidianqi12
+    2300026: ZJ_jidianqi13
+    2300028: ZJ_jidianqi14
+    2300030: ZJ_jidianqi15
+    2300032: ZJ_jidianqi19
+    2300034: ZJ_jidianqi23
+    2300036: ZJ_jidianqi24
+    2300038: ZJ_jidianqi25
+    2300040: ZJ_jidianqi27
+    2300042: ZJ_jidianqi28
+    2300044: ZJ_jidianqi29
+    2300046: ZJ_jidianqi30
+    2300048: ZJ_jidianqi32
+    2300050: ZJ_jidianqi35
+    2300052: ZJ_jidianqi36
+    2300054: ZJ_jidianqi39
+    2300056: ZJ_jidianqi40
+    2300058: ZJ_jidianqi45
+    2300060: ZJ_jidianqi46
+    2300062: ZJ_jidianqi47
+    3300000: Plane004
+    3300002: ZJ_jidianqi01
+    3300004: ZJ_jidianqi02
+    3300006: ZJ_jidianqi03
+    3300008: ZJ_jidianqi04
+    3300010: ZJ_jidianqi05
+    3300012: ZJ_jidianqi06
+    3300014: ZJ_jidianqi07
+    3300016: ZJ_jidianqi08
+    3300018: ZJ_jidianqi09
+    3300020: ZJ_jidianqi10
+    3300022: ZJ_jidianqi11
+    3300024: ZJ_jidianqi12
+    3300026: ZJ_jidianqi13
+    3300028: ZJ_jidianqi14
+    3300030: ZJ_jidianqi15
+    3300032: ZJ_jidianqi19
+    3300034: ZJ_jidianqi23
+    3300036: ZJ_jidianqi24
+    3300038: ZJ_jidianqi25
+    3300040: ZJ_jidianqi27
+    3300042: ZJ_jidianqi28
+    3300044: ZJ_jidianqi29
+    3300046: ZJ_jidianqi30
+    3300048: ZJ_jidianqi32
+    3300050: ZJ_jidianqi35
+    3300052: ZJ_jidianqi36
+    3300054: ZJ_jidianqi39
+    3300056: ZJ_jidianqi40
+    3300058: ZJ_jidianqi45
+    3300060: ZJ_jidianqi46
+    3300062: ZJ_jidianqi47
+    4300000: Plane004
+    4300002: ZJ_jidianqi05
+    4300004: ZJ_jidianqi06
+    4300006: ZJ_jidianqi07
+    4300008: ZJ_jidianqi08
+    4300010: ZJ_jidianqi15
+    4300012: ZJ_jidianqi29
+    4300014: ZJ_jidianqi30
+    4300016: ZJ_jidianqi01
+    4300018: ZJ_jidianqi02
+    4300020: ZJ_jidianqi03
+    4300022: ZJ_jidianqi04
+    4300024: ZJ_jidianqi19
+    4300026: ZJ_jidianqi25
+    4300028: ZJ_jidianqi24
+    4300030: ZJ_jidianqi23
+    4300032: ZJ_jidianqi47
+    4300034: ZJ_jidianqi14
+    4300036: ZJ_jidianqi13
+    4300038: ZJ_jidianqi12
+    4300040: ZJ_jidianqi45
+    4300042: ZJ_jidianqi46
+    4300044: ZJ_jidianqi11
+    4300046: ZJ_jidianqi10
+    4300048: ZJ_jidianqi09
+    4300050: ZJ_jidianqi36
+    4300052: ZJ_jidianqi39
+    4300054: ZJ_jidianqi35
+    4300056: ZJ_jidianqi40
+    4300058: ZJ_jidianqi32
+    4300060: ZJ_jidianqi28
+    4300062: ZJ_jidianqi27
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

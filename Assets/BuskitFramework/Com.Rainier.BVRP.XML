@@ -1,0 +1,2402 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Com.Rainier.BVRP</name>
+    </assembly>
+    <members>
+        <member name="T:Com.Rainier.Buskit3D.CommonBehaviour">
+            <summary>
+            作为其他Behaviour的基类使用
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.CommonBehaviour.dataModels">
+            <summary>
+            事件驱动Behaviour对象池
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.CommonBehaviour.associatedTable">
+            <summary>
+            注入关联表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.CommonBehaviour.gameObjects">
+            <summary>
+            注入GameObject对象池
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.CommonDataModel">
+            <summary>
+            作为其他DataModelBehaviour的基类使用,预先注入了一些基本单例
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.CommonEntity">
+            <summary>
+            作为其他Entity的基类使用
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.CommonLogic">
+            <summary>
+            作为其他LogicBehaviour的基类使用
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.CommonLogic.dataModels">
+            <summary>
+            事件驱动Behaviour对象池
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.CommonLogic.associatedTable">
+            <summary>
+            注入关联表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.CommonLogic.gameObjects">
+            <summary>
+            注入GameObject对象池
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.CommonLogic.Awake">
+            <summary>
+            执行依赖注入、绑定Entity
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.CommonLogic.ProcessLogic(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            处理消息
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.EObject">
+            <summary>
+            作为非Buskit3D基本对象使用，其他非Unity对象均可继承自此对象
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.EObject.Enable">
+            <summary>
+            实体有效性描述
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.EObject._enable">
+            <summary>
+            实体有效性描述
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.EObject.eventSource">
+            <summary>
+            事件源用于记录实体对象的侦听器、广播属性和方法事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.AddEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            添加事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.ClearListeners">
+            <summary>
+            清除事件侦听器
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.FireEvent(Com.Rainier.Buskit3D.PropertyEvent)">
+            <summary>
+            广播属性事件
+            </summary>
+            <param name="evt">属性变化消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.FireEvent(System.String,System.Object,System.Object)">
+            <summary>
+            广播属性事件
+            </summary>
+            <param name="name">属性名</param>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.FireEvent(Com.Rainier.Buskit3D.MethodEvent)">
+            <summary>
+            广播方法事件
+            </summary>
+            <param name="evt">方法调用消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.FireEvent(System.String,System.Object[])">
+            <summary>
+            广播方法事件
+            </summary>
+            <param name="name">方法名</param>
+            <param name="args">参数列表</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.OffFire">
+            <summary>
+            关闭广播事件功能
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.OnFire">
+            <summary>
+            打开广播事件功能
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.RemoveEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            删除事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.Contains(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            判断是否已经拥有事件源
+            </summary>
+            <param name="listener">侦听器</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EObject.ForceFireAll">
+            <summary>
+            强制发送所有属性事件
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.AbstractEvent">
+            <summary>
+            抽象事件，作为MethodEvent和PropertyEvent的基类
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.AbstractEvent.isDirtyFlag">
+            <summary>
+            用于标记反序列化时，实体还未被创建的情况
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.AbstractEvent.dirtyJobject">
+            <summary>
+            用于记录反序列化时，未被创建的实体的jobject，等待创建实体之后，在执行反序列化需要
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.AbstractEvent.EventSource">
+            <summary>
+            事件源对象，发出事件的对象既是实现IEventSourceSupportable的对象
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.AbstractEvent.eventSource">
+            <summary>
+            事件源对象，发出事件的对象既是实现IEventSourceSupportable的对象
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.AbstractEvent.EventName">
+            <summary>
+            事件名称，指方法或属性名称
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.AbstractEvent.eventName">
+            <summary>
+            事件名称，指方法或属性名称
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AbstractEvent.InokeEventSource">
+            <summary>
+            回调事件源属性或方法
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AbstractEvent.Copy(Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            从另外一个对象中复制，执行浅复制
+            </summary>
+            <param name="seri">实现了ISerializable的对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AbstractEvent.Copy(Com.Rainier.Buskit3D.ISerializable,Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            将源对象属性值拷贝到目标对象，执行浅复制
+            </summary>
+            <param name="source">源对象</param>
+            <param name="target">目标对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AbstractEvent.Clone">
+            <summary>
+            拷贝自身对象并返回对象，执行浅复制
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AbstractEvent.ToJson">
+            <summary>
+            序列化为JSON对象，执行浅复制
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AbstractEvent.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.EventSource">
+            <summary>
+            事件源或事件侦听器集合，拥有事件侦听器的管理
+            和事件广播，可以向事件侦听器发送属性事件（PropertyEvent）
+            和方法事件（MethodEvent）
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.EventSource.Count">
+            <summary>
+            事件侦听器个数
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.EventSource._listeners">
+            <summary>
+            事件侦听器列表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.EventSource._eventSource">
+            <summary>
+            事件源对象，通常情况下这个对象是实现了
+            IEventSourceSupportable接口的对象
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.EventSource._enabled">
+            <summary>
+            事件广播是否有效的标志
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sourceObject">事件源对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.AddEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            添加事件侦听器
+            </summary>
+            <param name="listener">实现了IEventListener的对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.ClearListeners">
+            <summary>
+            清理事件侦听器
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.Contains(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            是否包含事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.RemoveEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            删除事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.FireEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            广播事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.OffFire">
+            <summary>
+            关闭广播
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSource.OnFire">
+            <summary>
+            开启广播
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.FireInitEventAttribute">
+            <summary>
+            标识需要广播初始值的字段或属性
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.IEvent">
+            <summary>
+            描述事件的基本信息
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.IEvent.EventSource">
+            <summary>
+            发送事件的对象
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.IEvent.EventName">
+            <summary>
+            一般是一个属性或方法的名称
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.IEventListener">
+            <summary>
+            事件监听器
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventListener.OnEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            当发生新事件时触发此函数
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.IEventSource">
+            <summary>
+            事件源接口
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.IEventSource.Count">
+            <summary>
+            事件监听器个数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSource.ClearListeners">
+            <summary>
+            清除事件侦听器列表
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSource.Contains(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            判断是否已经拥有事件源
+            </summary>
+            <param name="listener">侦听器</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSource.AddEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            添加事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSource.RemoveEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            删除事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSource.FireEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            广播事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSource.OffFire">
+            <summary>
+            关闭事件广播
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSource.OnFire">
+            <summary>
+            开启事件广播
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.IEventSourceSupportable">
+            <summary>
+            描述一个支持事件源的对象
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.AddEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            添加事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.RemoveEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            删除事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.ClearListeners">
+            <summary>
+            清楚事件侦听器列表
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.FireEvent(Com.Rainier.Buskit3D.PropertyEvent)">
+            <summary>
+            广播事件
+            </summary>
+            <param name="evt">属性变化消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.FireEvent(System.String,System.Object,System.Object)">
+            <summary>
+            广播事件
+            </summary>
+            <param name="name">属性名</param>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.FireEvent(Com.Rainier.Buskit3D.MethodEvent)">
+            <summary>
+            广播事件
+            </summary>
+            <param name="evt">方法调用消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.Contains(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            判断是否已经拥有事件源
+            </summary>
+            <param name="listener">侦听器</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.FireEvent(System.String,System.Object[])">
+            <summary>
+            广播事件
+            </summary>
+            <param name="name">方法名</param>
+            <param name="args">参数列表</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.ForceFireAll">
+            <summary>
+            强制发送所有属性事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.OnFire">
+            <summary>
+            开启事件广播
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.IEventSourceSupportable.OffFire">
+            <summary>
+            关闭事件广播
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.MethodEvent">
+            <summary>
+            方法事件
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.MethodEvent.Argments">
+            <summary>
+            方法调用参数列表
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.MethodEvent.Clone">
+            <summary>
+            拷贝自身对象并返回对象，执行浅复制
+            </summary>
+            <returns>ISerializable对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.MethodEvent.InokeEventSource">
+            <summary>
+            回调源对象函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.MethodEvent.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.MethodEvent.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.PropertyEvent">
+            <summary>
+            属性事件
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.PropertyEvent.OldValue">
+            <summary>
+            属性老值
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.PropertyEvent.NewValue">
+            <summary>
+            属性新值
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.PropertyEvent.InokeEventSource">
+            <summary>
+            回调事件源属性
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.PropertyEvent.Clone">
+            <summary>
+            拷贝自身对象并返回对象，执行浅复制
+            </summary>
+            <returns>实现了ISerializable的对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.PropertyEvent.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.PropertyEvent.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.PropertyInitEvent">
+            <summary>
+            属性初始化事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.PropertyInitEvent.Clone">
+            <summary>
+            拷贝自身对象并返回对象，执行浅复制
+            </summary>
+            <returns>实现了ISerializable的对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.PropertyInitEvent.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.PropertyInitEvent.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.Buskit3DException">
+            <summary>
+            简单的Buskit3D自定义异常
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.Buskit3DException.#ctor(System.String)">
+            <summary>
+            简单的Buskit3D自定义异常
+            </summary>
+            <param name="msg">异常消息</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.ISerializable">
+            <summary>
+            可序列化对象描述接口
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ISerializable.Copy(Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            从另外一个对象深拷贝内容并保存到本对象中
+            </summary>
+            <param name="other">可序列化对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ISerializable.Copy(Com.Rainier.Buskit3D.ISerializable,Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            将源对象属性值拷贝到目标对象
+            </summary>
+            <param name="source">源对象</param>
+            <param name="target">目标对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ISerializable.Clone">
+            <summary>
+            拷贝自身对象并返回对象
+            </summary>
+            <returns>实现了ISerializable的对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ISerializable.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ISerializable.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.ObjectIdentity">
+            <summary>
+            生成唯一ID
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.ObjectIdentity.byteSize">
+            <summary>
+            字节长度
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.ObjectIdentity.prefabId">
+            <summary>
+            预制体Id
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.ObjectIdentity.id">
+            <summary>
+            唯一ID
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.ObjectIdentity.maxGenerateAttempts">
+            <summary>
+            最大尝试次数
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.ObjectIdentity.unassignedID">
+            <summary>
+            默认未定义的ID
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.ObjectIdentity.usedIds">
+            <summary>
+            所有已生成的ID
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.#cctor">
+            <summary>
+            静态构造函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.#ctor(System.Int16)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="id">初始化id</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="id">初始化id</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.Equals(System.Object)">
+            <summary>
+            重载比较方法
+            </summary>
+            <param name="obj">比较对象</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.Equals(Com.Rainier.Buskit3D.ObjectIdentity)">
+            <summary>
+            接口函数
+            </summary>
+            <param name="other">比较对象</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.Generate(Com.Rainier.Buskit3D.ObjectIdentity)">
+            <summary>
+            生成唯一ID
+            </summary>
+            <param name="idenity">ObjectIdentity对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.GetHashCode">
+            <summary>
+            重载
+            </summary>
+            <returns>int</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.IsUnique(Com.Rainier.Buskit3D.ObjectIdentity)">
+            <summary>
+            判断是否唯一
+            </summary>
+            <param name="identity">ObjectIdentity对象</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.IsValueUnique(System.Int16)">
+            <summary>
+            判断Id是否唯一
+            </summary>
+            <param name="value">id值</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.op_Equality(Com.Rainier.Buskit3D.ObjectIdentity,Com.Rainier.Buskit3D.ObjectIdentity)">
+            <summary>
+            重载
+            </summary>
+            <param name="a">ObjectIdentity对象</param>
+            <param name="b">ObjectIdentity对象</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.op_Inequality(Com.Rainier.Buskit3D.ObjectIdentity,Com.Rainier.Buskit3D.ObjectIdentity)">
+            <summary>
+            重载
+            </summary>
+            <param name="a">ObjectIdentity对象</param>
+            <param name="b">对象</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.op_Implicit(Com.Rainier.Buskit3D.ObjectIdentity)~System.Int32">
+            <summary>
+            重载
+            </summary>
+            <param name="identity">ObjectIdentity对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.RegisterIdentity(Com.Rainier.Buskit3D.ObjectIdentity)">
+            <summary>
+            注册唯一ID
+            </summary>
+            <param name="identity">ObjectIdentity对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.ToString">
+            <summary>
+            重载
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectIdentity.UnregisterIdentity(Com.Rainier.Buskit3D.ObjectIdentity)">
+            <summary>
+            删除已注册ID
+            </summary>
+            <param name="identity">ObjectIdentity对象</param>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.ObjectIdentity.IsGenerated">
+            <summary>
+            判断是佛已生成ID
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.RainierEventTriggerListener">
+            <summary>
+            触发接听器（待完善）
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate">
+            <summary>
+            触发接听方法委托
+            </summary>
+            <param name="go"></param>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onClickLeft">
+            <summary>
+            左击鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onClickRight">
+            <summary>
+            右击鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onClickMiddle">
+            <summary>
+            中击鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDownLeft">
+            <summary>
+            左按鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDownRight">
+            <summary>
+            右按鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDownMiddle">
+            <summary>
+            中按鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onUpLeft">
+            <summary>
+            左抬鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onUpRight">
+            <summary>
+            右抬鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onUpMiddle">
+            <summary>
+            中抬鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDoubleClickLeft">
+            <summary>
+            左双击鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDoubleClickRight">
+            <summary>
+            右双击鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDoubleClickMiddle">
+            <summary>
+            中双击鼠标委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onEnter">
+            <summary>
+            鼠标进入委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onExit">
+            <summary>
+            鼠标离开委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onHover">
+            <summary>
+            鼠标悬浮委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onBeginDragLeft">
+            <summary>
+            开始拖拽委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onBeginDragRight">
+            <summary>
+            右键开始拖拽
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onBeginDragMiddle">
+            <summary>
+            中键开始拖拽
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onEndDragLeft">
+            <summary>
+            结束拖拽委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onEndDragRight">
+            <summary>
+            右键结束拖拽
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onEndDragMiddle">
+            <summary>
+            中键结束拖拽
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDragLeft">
+            <summary>
+            左拖拽委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDragRight">
+            <summary>
+            右拖拽委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDragMiddle">
+            <summary>
+            中拖拽委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onScroll">
+            <summary>
+            鼠标滚轮委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDrop">
+            <summary>
+            鼠标松开委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onMove">
+            <summary>
+            鼠标移动委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onSelect">
+            <summary>
+            选中委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onDeselect">
+            <summary>
+            取消选中委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onUpdateselect">
+            <summary>
+            选中委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onSumit">
+            <summary>
+            提交委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.onCancel">
+            <summary>
+            取消委托
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.doubleClickTime">
+            <summary>
+            双击间隔
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.clickTime">
+            <summary>
+            计时器
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.RainierEventTriggerListener.isHover">
+            <summary>
+            是否悬停
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.Update">
+            <summary>
+            UnityMethod
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.Get(UnityEngine.GameObject)">
+            <summary>
+            事件绑定
+            </summary>
+            <param name="go">GameObject</param>
+            <returns>RainierEventTriggerListener</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnPointerClick(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            点击事件
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnPointerDown(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            按下事件
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnPointerEnter(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            进入事件
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnPointerExit(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            退出事件
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnPointerUp(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            抬起事件
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnBeginDrag(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            开始拖拽
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnEndDrag(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            结束拖拽
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnDrag(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            拖拽
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnScroll(UnityEngine.EventSystems.PointerEventData)">
+            <summary>
+            滚轮事件
+            </summary>
+            <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnDrop(UnityEngine.EventSystems.PointerEventData)">
+             <summary>
+            展开事件 
+             </summary>
+             <param name="eventData">PointerEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnMove(UnityEngine.EventSystems.AxisEventData)">
+            <summary>
+            移动事件
+            </summary>
+            <param name="eventData">AxisEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnSelect(UnityEngine.EventSystems.BaseEventData)">
+            <summary>
+            选中事件
+            </summary>
+            <param name="eventData">BaseEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnDeselect(UnityEngine.EventSystems.BaseEventData)">
+            <summary>
+            取消选中事件
+            </summary>
+            <param name="eventData">BaseEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnUpdateSelected(UnityEngine.EventSystems.BaseEventData)">
+            <summary>
+            选中事件
+            </summary>
+            <param name="eventData">BaseEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnSubmit(UnityEngine.EventSystems.BaseEventData)">
+            <summary>
+            提交事件
+            </summary>
+            <param name="eventData">BaseEventData</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.RainierEventTriggerListener.OnCancel(UnityEngine.EventSystems.BaseEventData)">
+            <summary>
+            取消事件
+            </summary>
+            <param name="eventData">BaseEventData</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.UniqueID">
+            <summary>
+            唯一ID
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.UniqueID.runtimeOriginId">
+            <summary>
+            动态ID的起始值，最小值为静态Id的最大值+1
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.UniqueID.objectIdentity">
+            <summary>
+            唯一id生成器
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.UniqueID.isPrefab">
+            <summary>
+            手动标记当前物体是不是预制体
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.UniqueID.#cctor">
+            <summary>
+            静态构造函数
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.UniqueID.UniqueId">
+            <summary>
+            唯一id
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.UniqueID.Awake">
+            <summary>
+            UnityMethod
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.UniqueID.OnDestroy">
+            <summary>
+            UnityMethod
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.DefaultIoCInitializer">
+            <summary>
+            默认IoC初始化器
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DefaultIoCInitializer._instance">
+            <summary>
+            DefaultIoCInitializer 静态实例
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.DefaultIoCInitializer.IsInitialized">
+            <summary>
+            是否已经初始化
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DefaultIoCInitializer._isInitialized">
+            <summary>
+            是否已经初始化
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DefaultIoCInitializer.NewInstance">
+            <summary>
+            获取单例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DefaultIoCInitializer.#ctor">
+            <summary>
+            私有化构造函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DefaultIoCInitializer.ForceClear">
+            <summary>
+            强力清除数据
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DefaultIoCInitializer.InitializeIoC">
+            <summary>
+            初始化IoC持久化
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.AssociatedRecordPool">
+            <summary>
+            实体关联关系表，用于描述一个GameObject上的实体与另一个GameObject上
+            实体的关联记录，保存的记录使用[左值  关联对象  右值] 格式定义，表示
+            的含义为：左值通过监听关联对象事件与右值建立联系；
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.AssociatedRecordPool.RecordCount">
+            <summary>
+            记录总数
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.AssociatedRecordPool.RecordRows">
+            <summary>
+            关联记录列表
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.AddRecord(Com.Rainier.Buskit3D.AssociatedRecord)">
+            <summary>
+            添加记录
+            </summary>
+            <param name="record">关联表</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.RemoveRecord(Com.Rainier.Buskit3D.AssociatedRecord)">
+            <summary>
+            删除一条记录
+            </summary>
+            <param name="record">关联表</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.FindByEntity(Com.Rainier.Buskit3D.Entity)">
+            <summary>
+            所搜与entity相关的记录
+            </summary>
+            <param name="entity">实体</param>
+            <returns>关联表集合</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.FindByLeft(Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            给定一个DataModelBehaviour获取所有左值记录（所有监听其他entity的记录）
+            </summary>
+            <param name="left">模型</param>
+            <returns>关联表集合</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.FindByRight(Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            给定一个DataModelBehaviour获取所有右值记录（所有被其他DataModelBehaviour监听的记录）
+            </summary>
+            <param name="right">模型</param>
+            <returns>关联表集合</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.CreateRecord(Com.Rainier.Buskit3D.DataModelBehaviour,Com.Rainier.Buskit3D.Entity,Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            给出左值、关联Entity、右值创建一条关联记录
+            </summary>
+            <param name="left">模型</param>
+            <param name="ae">实体</param>
+            <param name="right">模型</param>
+            <returns>AssociatedRecord</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.Copy(Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            从另外一个对象深拷贝内容并保存到本对象中
+            复制过程执行浅复制
+            </summary>
+            <param name="seri">ISerializable对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.Copy(Com.Rainier.Buskit3D.ISerializable,Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            将源对象属性值拷贝到目标对象
+            复制过程执行浅复制
+            </summary>
+            <param name="source">源对象</param>
+            <param name="target">目标对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.Clone">
+            <summary>
+            拷贝自身对象并返回对象,复制过程中执行浅复制
+            </summary>
+            <returns>ISerializable对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>Jobject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecordPool.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.DataModelPool">
+            <summary>
+            DataModel对象池
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DataModelPool._associatedTable">
+            <summary>
+            DataModelBehaviour关联表
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.OnEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            侦听DataModelBehaiviour事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.HandleAttachEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            处理DataModelBehaviour关联事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.HandleDetachEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            处理DataModelBehaviour解除关联事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.HandleDestroyEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            处理DataModelBehaviour销毁事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.HandleEnableEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            处理DataModelBehaviour使能事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.HandleDisableEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            处理DataModelBehaviour失能事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.RegisterObject(Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            注册对象
+            </summary>
+            <param name="obj">模型对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.RemoveObject(Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            删除对象
+            </summary>
+            <param name="obj">模型对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.FindEntity``1(Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            给定一个DataModelBehaviour返回其拥有的指定类型Entity
+            </summary>
+            <typeparam name="T">实体</typeparam>
+            <param name="dm">模型</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.FindEntity``1(UnityEngine.GameObject)">
+            <summary>
+            给定GameObject返回其上拥有的指定类型Entity
+            </summary>
+            <typeparam name="T">实体</typeparam>
+            <param name="go">GameObject</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.FindEntity``1">
+            <summary>
+            搜索所有同样类型的Entity
+            </summary>
+            <typeparam name="T">实体</typeparam>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.FindEntity``1(System.Int32)">
+            <summary>
+            根据指定ID和指定类型实体对象
+            </summary>
+            <typeparam name="T">实体</typeparam>
+            <param name="id">与模型对象一致的唯一id</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.FindEntity(System.Int32,System.Type)">
+            <summary>
+            根据指定ID和指定类型实体对象
+            </summary>
+            <param name="id">唯一id</param>
+            <param name="type">类型</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.FindDataModel``1">
+            <summary>
+            搜索具备同样Entity类型的所有DataModelBehaviour列表
+            </summary>
+            <typeparam name="T">实体</typeparam>
+            <returns>模型对象集合</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelPool.FindDataModel(System.Int32)">
+            <summary>
+            根据ID号搜索DataModelBehaviour
+            </summary>
+            <param name="id">模型对象的唯一id</param>
+            <returns>模型对象</returns>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.GameObjectPool">
+            <summary>
+            场景中的所有GameObject
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.GameObjectPool.FindGameObject(System.Int32)">
+            <summary>
+            在所有GameObject中搜索唯一ID的GameObject
+            </summary>
+            <param name="uniqueId">模型对象的唯一id</param>
+            <returns>GameObject</returns>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.ObjectPool`1">
+            <summary>
+            简单对象池
+            </summary>
+            <typeparam name="T">目标类型</typeparam>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.ObjectPool`1.ForeachCallback">
+            <summary>
+            查找回到
+            </summary>
+            <param name="i">index值</param>
+            <param name="t">目标类型对象</param>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.ObjectPool`1.objects">
+            <summary>
+            对象集合
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.RegisterObject(`0)">
+            <summary>
+            注册对象
+            </summary>
+            <param id="obj">目标类型</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.RemoveObject(`0)">
+            <summary>
+            删除对象
+            </summary>
+            <param id="obj">目标类型</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.Foreach(Com.Rainier.Buskit3D.ObjectPool{`0}.ForeachCallback)">
+            <summary>
+            遍历对象池
+            </summary>
+            <param id="cb">遍历回调</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.FindObjects``1">
+            <summary>
+            查找特定类型的对象
+            </summary>
+            <typeparam name="T1">目标类型</typeparam>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.FindObject``1">
+            <summary>
+            查找T1类型的对象
+            </summary>
+            <typeparam name="T1">目标类型</typeparam>
+            <returns>目标对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.Count">
+            <summary>
+            获取大小
+            </summary>
+            <returns>数量</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.Get(System.Int32)">
+            <summary>
+            获取第几个对象
+            </summary>
+            <param id="index"></param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.OnDestroy">
+            <summary>
+            清除所有对象
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.Clear">
+            <summary>
+            清除所有数据
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.ObjectPool`1.ToArray">
+            <summary>
+            转换为数组
+            </summary>
+            <returns>数据集合</returns>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.StateTransition">
+            <summary>
+            状态转移
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateTransition.Safe">
+            <summary>
+            等待携程结束，切换状态
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateTransition.Overwrite">
+            <summary>
+            停止所有携程，直接切换状态
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.IStateMachine">
+            <summary>
+            状态机接口
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.IStateMachine.Component">
+            <summary>
+            状态机所属MonoBehaviour
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.IStateMachine.CurrentStateMap">
+            <summary>
+            状态机映射表
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.IStateMachine.IsInTransition">
+            <summary>
+            实在转移状态吗？
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.StateMachine`1">
+            <summary>
+            简单的状态机实现
+            </summary>
+            <typeparam name="T">状态</typeparam>
+        </member>
+        <member name="E:Com.Rainier.Buskit3D.StateMachine`1.Changed">
+            <summary>
+            回调函数表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.engine">
+            <summary>
+            状态机运行入口
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.component">
+            <summary>
+            所属MonoBehaviour
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.lastState">
+            <summary>
+            状态映射表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.currentState">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.destinationState">
+            <summary>
+            目标状态
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.stateLookup">
+            <summary>
+            状态搜索表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.ignoredNames">
+            <summary>
+            忽略名称
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.isInTransition">
+            <summary>
+            是否正在转移
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachine`1.currentTransition">
+            <summary>
+            状态转移协程
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.#ctor(Com.Rainier.Buskit3D.StateMachineRunner,UnityEngine.MonoBehaviour)">
+            <summary>
+            /构造函数
+            </summary>
+            <param name="engine">状态更新组件</param>
+            <param name="component">MonoBehaviour组件</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.CreateDelegate``1(System.Reflection.MethodInfo,System.Object)">
+            <summary>
+            创建代理
+            </summary>
+            <typeparam name="V">委托类型</typeparam>
+            <param name="method">回调方法</param>
+            <param name="target">目标对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.ChangeState(`0)">
+            <summary>
+            创建状态
+            </summary>
+            <param name="newState">新状态</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.ChangeState(`0,Com.Rainier.Buskit3D.StateTransition)">
+            <summary>
+            创建状态
+            </summary>
+            <param name="newState">新状态</param>
+            <param name="transition">状态转移类型</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.ChangeToNewStateRoutine(Com.Rainier.Buskit3D.StateMapping,Com.Rainier.Buskit3D.StateTransition)">
+            <summary>
+            创建新的状态协程
+            </summary>
+            <param name="newState">状态映射表</param>
+            <param name="transition">状态转移类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.WaitForPreviousTransition(Com.Rainier.Buskit3D.StateMapping)">
+            <summary>
+            等待前一个转移结束
+            </summary>
+            <param name="nextState">状态映射表</param>
+            <returns></returns>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.StateMachine`1.LastState">
+            <summary>
+            终态
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.StateMachine`1.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.StateMachine`1.IsInTransition">
+            <summary>
+            是处于转移过程中吗？
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.StateMachine`1.CurrentStateMap">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.StateMachine`1.Component">
+            <summary>
+            所属MonoBehaviour
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.Initialize(UnityEngine.MonoBehaviour)">
+            <summary>
+            初始化状态机
+            </summary>
+            <param name="component">所属MonoBehaviour</param>
+            <returns>状态机</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachine`1.Initialize(UnityEngine.MonoBehaviour,`0)">
+            <summary>
+            初始化状态机并指定初始状态
+            </summary>
+            <param name="component">所属MonoBehaviour</param>
+            <param name="startState">初始状态</param>
+            <returns>状态机</returns>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.StateMachineRunner">
+            <summary>
+            状态机运行MonoBehaviour
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMachineRunner.stateMachineList">
+            <summary>
+            状态机列表
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.Initialize``1(UnityEngine.MonoBehaviour)">
+            <summary>
+            初始化 
+            </summary>
+            <typeparam name="T">状态转移枚举</typeparam>
+            <param name="component">维护状态机运行的MonoBehaviour</param>
+            <returns>状态机</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.Initialize``1(UnityEngine.MonoBehaviour,``0)">
+            <summary>
+            初始化 
+            </summary>
+            <typeparam name="T">状态转移枚举</typeparam>
+            <param name="component">维护状态机运行的MonoBehaviour</param>
+            <param name="startState">初始状态</param>
+            <returns>状态机</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.FixedUpdate">
+            <summary>
+            执行状态机的状态更新
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.Update">
+            <summary>
+            执行状态机的状态更新
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.LateUpdate">
+            <summary>
+            执行状态机的状态更新
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.DoNothing">
+            <summary>
+            空回调函数，当用户不指定回调函数时调用此函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.DoNothingCollider(UnityEngine.Collider)">
+            <summary>
+            空回调函数，当用户不指定回调函数时调用此函数
+            </summary>
+            <param name="other">碰撞对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.DoNothingCollision(UnityEngine.Collision)">
+            <summary>
+            空回调函数，当用户不指定回调函数时调用此函数
+            </summary>
+            <param name="other">碰撞对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMachineRunner.DoNothingCoroutine">
+            <summary>
+            空回调函数，当用户不指定回调函数时调用此函数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.StateMapping">
+            <summary>
+            状态映射表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.State">
+            <summary>
+            状态对象
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.HasEnterRoutine">
+            <summary>
+            是否进入协程
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.EnterCall">
+            <summary>
+            状态进入回调
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.EnterRoutine">
+            <summary>
+            状态进入协程
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.HasExitRoutine">
+            <summary>
+            协程执行完了吗？
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.ExitCall">
+            <summary>
+            退出回调
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.ExitRoutine">
+            <summary>
+            退出协程
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.Finally">
+            <summary>
+            状态Final方法
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.Update">
+            <summary>
+            状态Update方法
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.LateUpdate">
+            <summary>
+            状态LateUpdate方法
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.FixedUpdate">
+            <summary>
+            状态FixedUpdate方法
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.StateMapping.OnCollisionEnter">
+            <summary>
+            碰撞进入
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.StateMapping.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="state">状态</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.DataModelBehaviour">
+            <summary>
+            事件驱动MonoBehaviour
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.DataModelBehaviour.Id">
+            <summary>
+            获取ID号
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DataModelBehaviour._id">
+            <summary>
+            获取ID号
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.DataModelBehaviour.Entities">
+            <summary>
+            自身拥有的实体对象
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DataModelBehaviour._entities">
+            <summary>
+            自身拥有的实体对象
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DataModelBehaviour.dataModels">
+            <summary>
+            事件驱动Behaviour对象池
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DataModelBehaviour.associatedTable">
+            <summary>
+            注入关联表
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.DataModelBehaviour.gameObjects">
+            <summary>
+            注入GameObject对象池
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.Awake">
+            <summary>
+            初始化EventSource、执行依赖注入、绑定Entity
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.Start">
+            <summary>
+            子类复写此函数
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.AttachEntity(Com.Rainier.Buskit3D.Entity)">
+            <summary>
+            关联自身实体对象
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.DetachEntity(Com.Rainier.Buskit3D.Entity)">
+            <summary>
+            分离对另外一个实体对象的监听
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.AttachEntity``1">
+            <summary>
+            关联自身实体对象
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.DetachEntity``1">
+            <summary>
+            分离对另外一个实体对象的监听
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.AttachEntity(System.Type)">
+            <summary>
+            关联实体对象
+            </summary>
+            <param name="type">指定继承自Entity的type</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.DetachEntity(System.Type)">
+            <summary>
+            分离对另外一个实体对象的监听
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.AttachEntity``1(Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            关联另外一个GameObject上的Entity
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="edb">模型对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.DetachEntity``1(Com.Rainier.Buskit3D.DataModelBehaviour)">
+            <summary>
+            取消关联另外一个GameObject上的Entity
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="edb">模型对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.OnDisable">
+            <summary>
+            向关联EventDirvenBehaviour发送OnDisable事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.OnEnable">
+            <summary>
+            向关联EventDirvenBehaviour发送OnEnable事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.OnDestroy">
+            <summary>
+            向关联EventDirvenBehaviour发送OnDestroy事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.OnEvent(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            响应Entity事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.FindEntity(System.Type)">
+            <summary>
+            查找指定类型的实体对象
+            </summary>
+            <param name="type">实体类型</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.DataModelBehaviour.FindEntity``1">
+            <summary>
+            查找特定类型的实体对象
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <returns>实体对象</returns>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.AssociatedRecord">
+            <summary>
+            保存的记录使用[左值  关联对象  右值]格式定义，表示
+            的含义为：左值通过监听关联对象事件与右值建立联系；
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.AssociatedRecord.Left">
+            <summary>
+            左值
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.AssociatedRecord.AEntity">
+            <summary>
+            关联对象
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.AssociatedRecord.Right">
+            <summary>
+            右值
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecord.Equals(System.Object)">
+            <summary>
+            复写Equals函数
+            </summary>
+            <param name="obj">比较对象</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecord.Copy(Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            从另外一个对象深拷贝内容并保存到本对象中
+            </summary>
+            <param name="seri">可序列化对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecord.Copy(Com.Rainier.Buskit3D.ISerializable,Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            将源对象属性值拷贝到目标对象
+            </summary>
+            <param name="source">源对象</param>
+            <param name="target">目标对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecord.Clone">
+            <summary>
+            执行浅复制，对于关联表记录而言深复制没有意义
+            原因在于记录中的对象与记录本身都是引用关系而不是组合或聚合关系
+            </summary>
+            <returns>ISerializable对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecord.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.AssociatedRecord.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.Entity">
+            <summary>
+            实体对象
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.Entity.Id">
+            <summary>
+            GameObject唯一ID号
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.Entity._id">
+            <summary>
+            GameObject唯一ID号
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.Entity.Copy(Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            从另外一个对象深拷贝内容并保存到本对象中
+            </summary>
+            <param name="seri">可序列化对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.Entity.Copy(Com.Rainier.Buskit3D.ISerializable,Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            将源对象属性值拷贝到目标对象
+            </summary>
+            <param name="source">源对象</param>
+            <param name="target">目标对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.Entity.Clone">
+            <summary>
+            拷贝自身对象并返回对象
+            </summary>
+            <returns>ISerializable对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.Entity.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.Entity.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.EventSupportBehaviour">
+            <summary>
+            事件支持Behaviour
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.#cctor">
+            <summary>
+            初始化IOC
+            </summary>
+        </member>
+        <member name="F:Com.Rainier.Buskit3D.EventSupportBehaviour.eventSource">
+            <summary>
+            事件源用于记录实体对象的侦听器、广播属性和方法事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.Awake">
+            <summary>
+            初始化EventSource、执行依赖注入、绑定Entity
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.OnDisable">
+            <summary>
+            向关联EventDirvenBehaviour发送OnDisable事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.OnEnable">
+            <summary>
+            向关联EventDirvenBehaviour发送OnEnable事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.OnDestroy">
+            <summary>
+            向关联EventDirvenBehaviour发送OnDestroy事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.Contains(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            判断是否已经拥有事件源
+            </summary>
+            <param name="listener">侦听器</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.AddEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            添加事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.ClearListeners">
+            <summary>
+            清除事件侦听器
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.FireEvent(Com.Rainier.Buskit3D.PropertyEvent)">
+            <summary>
+            广播属性事件
+            </summary>
+            <param name="evt">属性变化消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.FireEvent(System.String,System.Object,System.Object)">
+            <summary>
+            广播属性事件
+            </summary>
+            <param name="name">属性名</param>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.FireEvent(Com.Rainier.Buskit3D.MethodEvent)">
+            <summary>
+            广播方法事件
+            </summary>
+            <param name="evt">方法调用消息体</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.FireEvent(System.String,System.Object[])">
+            <summary>
+            广播方法事件
+            </summary>
+            <param name="name">方法名</param>
+            <param name="args">参数列表</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.OffFire">
+            <summary>
+            关闭广播事件功能
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.OnFire">
+            <summary>
+            打开广播事件功能
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.RemoveEventListener(Com.Rainier.Buskit3D.IEventListener)">
+            <summary>
+            删除事件侦听器
+            </summary>
+            <param name="listener">侦听器</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.ForceFireAll">
+            <summary>
+            强制发送所有属性事件
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.Copy(Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            从另外一个对象深拷贝内容并保存到本对象中
+            </summary>
+            <param name="seri">可序列化对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.Copy(Com.Rainier.Buskit3D.ISerializable,Com.Rainier.Buskit3D.ISerializable)">
+            <summary>
+            将源对象属性值拷贝到目标对象
+            </summary>
+            <param name="source">源对象</param>
+            <param name="target">目标对象</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.Clone">
+            <summary>
+            拷贝自身对象并返回对象
+            </summary>
+            <returns>ISerializable对象</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.ToJson">
+            <summary>
+            序列化为JSON对象
+            </summary>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.EventSupportBehaviour.FromJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            从JSON对象中读取数据内容
+            </summary>
+            <param name="obj">JObject</param>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.InterestedAttribute">
+            <summary>
+            感兴趣的Entity类型
+            </summary>
+        </member>
+        <member name="P:Com.Rainier.Buskit3D.InterestedAttribute.Types">
+            <summary>
+            类型列表
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.InterestedAttribute.#ctor(System.Type)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="type">注解类型</param>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.InterestedAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Com.Rainier.Buskit3D.LogicBehaviour">
+            <summary>
+            事件处理器
+            </summary>
+        </member>
+        <member name="M:Com.Rainier.Buskit3D.LogicBehaviour.ProcessLogic(Com.Rainier.Buskit3D.IEvent)">
+            <summary>
+            处理属性或方法事件
+            </summary>
+            <param name="evt">消息体</param>
+        </member>
+        <member name="T:RainierEventTriggerListenerExpand">
+            <summary>
+            触发接听器扩展方法
+            </summary>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddClick(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            点击
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddDoubleClick(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            双击
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddUp(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            弹起
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddDown(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            按下
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddHover(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            鼠标浮上（Update）
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddEnter(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            鼠标进入
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddExit(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            鼠标离开
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddBeginDrag(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            开始拖拽
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddEndDrag(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            结束拖拽
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddDrag(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            拖拽
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddScroll(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            中键在物体上滑动
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddDrop(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            拖拽另一个物体松开在本体上
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddMove(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选中且键盘使用移动键时
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddSelect(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择时
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddDeselect(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体不被选择时
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddUpdateselect(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择（每帧）
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddSumit(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择时键盘提交
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.AddCancel(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择时键盘取消
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetClick(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            点击
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetDoubleClick(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            双击
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetUp(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            抬起
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetDown(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            按下
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetHover(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            鼠标浮上（每帧）
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetEnter(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            鼠标进入
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetExit(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            鼠标离开
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetBeginDrag(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            鼠标开始拖拽
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetEndDrag(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            结束拖拽
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetDrag(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate,UnityEngine.EventSystems.PointerEventData.InputButton)">
+            <summary>
+            正在拖拽
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+            <param name="mouseInput">InputButton</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetScroll(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            鼠标中键在该物体上滑动
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetDrop(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            拖拽另一个物体松开在本体上
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetMove(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选中且键盘使用移动键时
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetSelect(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择时
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetDeselect(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体不被选择时
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetUpdateselect(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择（每帧）
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetSumit(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择时键盘提交
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+        <member name="M:RainierEventTriggerListenerExpand.SetCancel(UnityEngine.GameObject,Com.Rainier.Buskit3D.RainierEventTriggerListener.VoidDelegate)">
+            <summary>
+            当物体被选择时键盘取消
+            </summary>
+            <param name="go">GameObject</param>
+            <param name="function">RainierEventTriggerListener.VoidDelegate</param>
+        </member>
+    </members>
+</doc>

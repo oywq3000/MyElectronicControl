@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 100f8113a2f570e4cb00ea7cb81442ec
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ZD_dianzu007
+    100004: ZD_dianzu008
+    100006: ZD_dianzu009
+    100008: ZD_dianzu01
+    100010: ZD_dianzu010
+    100012: ZD_dianzu011
+    100014: ZD_dianzu012
+    100016: ZD_dianzu013
+    100018: ZD_dianzu014
+    100020: ZD_dianzu015
+    100022: ZD_dianzu016
+    100024: ZD_dianzu017
+    100026: ZD_dianzu018
+    100028: ZD_dianzu02
+    100030: ZD_dianzu03
+    100032: ZD_dianzu04
+    100034: ZD_dianzu05
+    100036: ZD_dianzu06
+    100038: ZDDZ
+    100040: ZDDZ001
+    100042: ZDDZ002
+    400000: //RootNode
+    400002: ZD_dianzu007
+    400004: ZD_dianzu008
+    400006: ZD_dianzu009
+    400008: ZD_dianzu01
+    400010: ZD_dianzu010
+    400012: ZD_dianzu011
+    400014: ZD_dianzu012
+    400016: ZD_dianzu013
+    400018: ZD_dianzu014
+    400020: ZD_dianzu015
+    400022: ZD_dianzu016
+    400024: ZD_dianzu017
+    400026: ZD_dianzu018
+    400028: ZD_dianzu02
+    400030: ZD_dianzu03
+    400032: ZD_dianzu04
+    400034: ZD_dianzu05
+    400036: ZD_dianzu06
+    400038: ZDDZ
+    400040: ZDDZ001
+    400042: ZDDZ002
+    2100000: 'Material #10601'
+    2100002: jinshu
+    2300000: ZD_dianzu007
+    2300002: ZD_dianzu008
+    2300004: ZD_dianzu009
+    2300006: ZD_dianzu01
+    2300008: ZD_dianzu010
+    2300010: ZD_dianzu011
+    2300012: ZD_dianzu012
+    2300014: ZD_dianzu013
+    2300016: ZD_dianzu014
+    2300018: ZD_dianzu015
+    2300020: ZD_dianzu016
+    2300022: ZD_dianzu017
+    2300024: ZD_dianzu018
+    2300026: ZD_dianzu02
+    2300028: ZD_dianzu03
+    2300030: ZD_dianzu04
+    2300032: ZD_dianzu05
+    2300034: ZD_dianzu06
+    3300000: ZD_dianzu007
+    3300002: ZD_dianzu008
+    3300004: ZD_dianzu009
+    3300006: ZD_dianzu01
+    3300008: ZD_dianzu010
+    3300010: ZD_dianzu011
+    3300012: ZD_dianzu012
+    3300014: ZD_dianzu013
+    3300016: ZD_dianzu014
+    3300018: ZD_dianzu015
+    3300020: ZD_dianzu016
+    3300022: ZD_dianzu017
+    3300024: ZD_dianzu018
+    3300026: ZD_dianzu02
+    3300028: ZD_dianzu03
+    3300030: ZD_dianzu04
+    3300032: ZD_dianzu05
+    3300034: ZD_dianzu06
+    4300000: ZD_dianzu01
+    4300002: ZD_dianzu02
+    4300004: ZD_dianzu03
+    4300006: ZD_dianzu04
+    4300008: ZD_dianzu05
+    4300010: ZD_dianzu06
+    4300012: ZD_dianzu007
+    4300014: ZD_dianzu008
+    4300016: ZD_dianzu009
+    4300018: ZD_dianzu010
+    4300020: ZD_dianzu011
+    4300022: ZD_dianzu012
+    4300024: ZD_dianzu013
+    4300026: ZD_dianzu014
+    4300028: ZD_dianzu015
+    4300030: ZD_dianzu016
+    4300032: ZD_dianzu017
+    4300034: ZD_dianzu018
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

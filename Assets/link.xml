@@ -1,0 +1,5 @@
+<linker>
+       <assembly fullname="Com.Rainier.BVRP">
+            <namespace fullname="Com.Rainier.Buskit3D" preserve="all"/>
+       </assembly>
+</linker>
